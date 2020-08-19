@@ -49,7 +49,23 @@ window.addEventListener('DOMContentLoaded', function() {
         }
         revDetails(revArray);
     });
+    
+    prev.addEventListener('click', function() {
+        currentItem--;
+        if(currentItem < 0) {
+            currentItem = revArray.length - 1;
+        }
+        revDetails(revArray);
+    });
 
+    random.addEventListener('click', function() {
+        currentItem = randNum();
+        revDetails(revArray);
+    });
+
+    function randNum() {
+       return Math.floor(Math.random() * revArray.length);
+    }
     
 
 
