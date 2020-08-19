@@ -41,6 +41,24 @@ const next = document.querySelector('.next');
 const random = document.querySelector('.random');
 
 window.addEventListener('DOMContentLoaded', function() {
-    let item = revArray[currentItem];
-    console.log(item);
+    
+    next.addEventListener('click', function() {
+        currentItem++;
+        if(currentItem > revArray.length - 1) {
+           currentItem = 0;
+        }
+        revDetails(revArray);
+    });
+
+    
+
+
+    function revDetails(person) {
+        let item = person[currentItem];
+        image.src = item.img;
+        name.textContent = item.name;
+        job.textContent = item.job;
+        info.textContent = item.info;
+    }
 });
+
